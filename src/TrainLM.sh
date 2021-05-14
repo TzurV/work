@@ -22,5 +22,7 @@ outARPA=$2
 
 $lmplz --verbose_header -o 2 --intermediate NGRAM.txt --discount_fallback --text $textFile --arpa $outARPA
 
+awk '{for(j=1;j<=NF;j++) W[$j]+=1}END{for(w in W)print w;}' $textFile | sort > $outARPA.vocab
+
 
 
